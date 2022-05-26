@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
 
+import { Table } from './Classes/Table'
+
 function App() {
+
+  const [table, setTable] = useState(new Table())
+
+  console.log(table)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Hello World
+
+    {
+      table && table.board.map(row => {
+        return row.map(node => {
+          return <h2> {node.currentPiece} </h2>
+        })
+      })
+    }
+
     </div>
   );
 }
